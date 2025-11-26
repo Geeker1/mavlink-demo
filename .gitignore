@@ -1,0 +1,30 @@
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build output
+bin/
+build/
+dist/
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE
+.vscode/
+.idea/
+
+# Local config
+.env
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db
