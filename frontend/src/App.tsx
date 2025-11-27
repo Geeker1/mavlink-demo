@@ -17,7 +17,7 @@ const droneIcon = L.icon({
   popupAnchor: [0, -20],      // point from which the popup should open relative to the iconAnchor
 });
 
-const WS_URL = "ws://localhost:1323/ws"
+const WS_URL = import.meta.env.VITE_WEBSOCKET_URL;
 
 const initialState: State = {
   current: {},
@@ -123,7 +123,7 @@ function App() {
     <main className='flex-1'>
       <div className='flex py-4'>
         <SidebarTrigger />
-        <h1 className='mx-6 font-bold text-lg text-gray-800'>Proxylity Drone Simulation</h1>
+        <h1 className='mx-6 font-bold text-lg text-gray-800'>MavLink Drone Simulation [Proxylity]</h1>
       </div>
       {displayMap}
     </main>

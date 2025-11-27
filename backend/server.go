@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"errors"
+	"os"
 
 	"net/http"
 	"time"
@@ -20,15 +21,18 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/sqs"
 	"github.com/aws/aws-sdk-go-v2/service/sqs/types"
+
+	_ "github.com/joho/godotenv/autoload"
 )
 
-var ALLOWED = "http://localhost:5173"
-var QUEUE_URL = "https://sqs.us-west-2.amazonaws.com/600213435068/mavlink-device-tracker-MavLinkDeviceQueue-2IvK4dVE1owt.fifo"
 
 var (
+	ALLOWED_DOMAIN = os.Getenv("ALLOWED_DOMAIN")
+	QUEUE_URL = os.Getenv("QUEUE_URL")
+
 	upgrader = websocket.Upgrader{
 		CheckOrigin: func(r *http.Request) bool {
-			return r.Header.Get("Origin") == ALLOWED
+			return r.Header.Get("Origin") == ALLOWED_DOMAIN
 		},
 	}
 )

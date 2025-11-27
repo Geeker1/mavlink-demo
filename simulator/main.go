@@ -21,10 +21,10 @@ const (
 // Extra CRC for GLOBAL_POSITION_INT
 const msg33ExtraCRC = 104
 
-const DOMAIN = "ingress-1.proxylity.com"
-const PORT = "2248"
+var DOMAIN = os.Getenv("DOMAIN")
+var PORT = os.Getenv("PORT")
 
-const ENDPOINT = DOMAIN + ":" + PORT
+var ENDPOINT = DOMAIN + ":" + PORT
 
 type InitialData struct {
 	id int64
@@ -86,14 +86,11 @@ func droneHandler(data InitialData, conn *net.Conn, stopChan <-chan struct{}, wg
 
 func main() {
 	stopChan := make(chan struct{})
-	log.Println("Dialing UDP endpoint: "+ENDPOINT)
 	conn, err := net.Dial("udp", ENDPOINT)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer conn.Close()
-
-	log.Println("Dialed successfully")
 
 	// Define drone devices and initial data
 	// Pass to goroutine to stream simulated drone data
