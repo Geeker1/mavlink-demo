@@ -103,3 +103,9 @@ The second destination demonstrates advanced FIFO queue configuration:
 The `MessageDeduplicationId` parameter is required for FIFO queues when `ContentBasedDeduplication` is not enabled. Using the expression-based approach allows you to extract deduplication IDs directly from your UDP packet payloads, giving you full control over message deduplication logic.
 
 Similarly, `MessageGroupId` determines the ordering and processing scope within FIFO queues. Messages with the same group ID are processed in order, and only one message per group can be in-flight at a time. The expression-based extraction demonstrated here allows you to partition your UDP packet stream into logical groups based on payload content.
+
+
+## Limitations
+
+* **SQS**: For high throughput, SQS is not the best option. Although, this is a demo example, it is not adviced to use SQS for drone simulation data.
+A better alternative would be **Kinesis Data Streams**.
