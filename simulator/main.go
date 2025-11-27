@@ -101,12 +101,18 @@ func main() {
 		{id: 2, lat: 51.5100, lon: -0.1407, drift: 0.0015, direction: directionSignFloat(180)},
 		{id: 3, lat: 51.5033, lon: -0.1195, drift: 0.0015, direction: directionSignFloat(270)},
 
-		// Africa (1)
+		// Africa (2)
 		{id: 4, lat: 6.5244, lon: 3.3792, drift: 0.0015, direction: directionSignFloat(135)},   // Lagos, Nigeria
+		{id: 5, lat: -1.2921, lon: 36.8219, drift: 0.0015, direction: directionSignFloat(45)},   // Nairobi, Kenya
 
-		// Americas (2)
-		{id: 5, lat: 40.7128, lon: -74.0060, drift: 0.0015, direction: directionSignFloat(0)},  // New York
-		{id: 6, lat: 34.0522, lon: -118.2437, drift: 0.0015, direction: directionSignFloat(180)}, // Los Angeles, USA
+		// Americas (3)
+		{id: 6, lat: 40.7128, lon: -74.0060, drift: 0.0015, direction: directionSignFloat(0)},   // New York
+		{id: 7, lat: 34.0522, lon: -118.2437, drift: 0.0015, direction: directionSignFloat(180)}, // Los Angeles
+		{id: 8, lat: -23.5505, lon: -46.6333, drift: 0.0015, direction: directionSignFloat(90)},  // São Paulo, Brazil
+
+		// Asia (2)
+		{id: 9, lat: 35.6895, lon: 139.6917, drift: 0.0015, direction: directionSignFloat(270)}, // Tokyo, Japan
+		{id: 10, lat: 28.6139, lon: 77.2090, drift: 0.0015, direction: directionSignFloat(0)},   // New Delhi, India
 	}
 
 	var wg sync.WaitGroup
