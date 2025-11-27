@@ -8,7 +8,7 @@ Each drone is rendered as a custom icon on an interactive Leaflet map, with the 
 
 ### Live telemetry
 
-* Connects to `VITE_WEBSOCKET_URL` (e.g. `ws://localhost:1323/ws`)
+* Connects to `VITE_WEBSOCKET_URL` (e.g. `ws://localhost:8080/ws`)
 * Receives `{ sysid, lat, lon, timestamp }`
 * Updates drone state in real time
 
@@ -85,7 +85,7 @@ Example marker rendering:
 `.env` (Vite style):
 
 ```
-VITE_WEBSOCKET_URL=ws://localhost:1323/ws
+VITE_WEBSOCKET_URL=ws://localhost:8080/ws
 ```
 
 
@@ -106,7 +106,7 @@ yarn
 ### 2. Create `.env`
 
 ```bash
-echo "VITE_WEBSOCKET_URL=ws://localhost:1323/ws" > .env
+echo "VITE_WEBSOCKET_URL=ws://localhost:8080/ws" > .env
 ```
 
 ### 3. Place drone icon

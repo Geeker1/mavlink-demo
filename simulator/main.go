@@ -65,7 +65,7 @@ func droneHandler(data InitialData, conn *net.Conn, stopChan <-chan struct{}, wg
 				9000,             // heading (centidegrees)
 			)
 
-			log.Printf("Packet [%d]: %v ", sysID, packet)
+			// log.Printf("Packet [%d]: %v ", sysID, packet)
 
 			mu.Lock()
 			_, err := (*conn).Write(packet)
@@ -98,7 +98,7 @@ func main() {
 	initialDataList := []InitialData{
 		// London (3)
 		{id: 1, lat: 51.5084, lon: -0.1278, drift: 0.0015, direction: directionSignFloat(90)},
-		{id: 2, lat: 51.5100, lon: -0.1337, drift: 0.0015, direction: directionSignFloat(180)},
+		{id: 2, lat: 51.5100, lon: -0.1407, drift: 0.0015, direction: directionSignFloat(180)},
 		{id: 3, lat: 51.5033, lon: -0.1195, drift: 0.0015, direction: directionSignFloat(270)},
 
 		// Africa (1)

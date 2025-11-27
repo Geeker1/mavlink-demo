@@ -43,7 +43,7 @@ Messages are deleted in batch after processing.
 
 ```
 QUEUE_URL=https://sqs.us-east-1.amazonaws.com/1234567890/mav_queue.fifo
-ALLOWED_DOMAIN=http://localhost:5173
+ALLOWED_DOMAIN=http://localhost:5175
 AWS_ACCESS_KEY_ID=xxxxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxx
 AWS_REGION=us-west-2
@@ -55,7 +55,7 @@ AWS_REGION=us-west-2
 ## WebSocket endpoint
 
 ```
-ws://localhost:1323/ws
+ws://localhost:8080/ws
 ```
 
 Clients should connect from the origin defined in `ALLOWED_DOMAIN`.
@@ -88,14 +88,14 @@ go run .
 ```yaml
 services:
   mav_backend:
-    image: yourimage
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mav_backend
+    env_file:
+      - ./backend/.env
     ports:
-      - "1323:1323"
-    environment:
-      - QUEUE_URL=${QUEUE_URL}
-      - ALLOWED_DOMAIN=${ALLOWED_DOMAIN}
-    volumes:
-      - ~/.aws:/root/.aws:ro
+      - "8080:1323"
 ```
 
 ---
